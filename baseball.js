@@ -21,7 +21,8 @@ function is_allowed_number(number)
         }
         numbers[numbers.length] = tmp;
     }
-
+	console.log(numbers);
+	
     if (numbers.size != CONFIG_NUM_DIGIT)
     {
 	    console.log(3);
