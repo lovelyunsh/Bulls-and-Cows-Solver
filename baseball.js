@@ -246,9 +246,10 @@ function execute()
     try
     {
         var q_input = mainForm.input_Q.value;
+	console.log(q_input);
         var s_input = Number(mainForm.input_S.value);
         var b_input = Number(mainForm.input_B.value);
-
+	
         if (is_allowed_number(q_input) == false)
         {
             alert("Not allowed number input.");
