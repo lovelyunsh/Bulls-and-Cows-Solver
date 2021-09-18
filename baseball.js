@@ -11,23 +11,19 @@ function is_allowed_number(number)
         tmp = tmp_number.substr(i, 1);
         if (tmp == '')
         {
-		console.log(1);
             return false;
         }
         else if (CONFIG_POOL.has(Number(tmp)) == false)
         {
-		console.log(2);
             return false;
         }
         numbers[numbers.length] = tmp;
     }
-	console.log(numbers);
     if (numbers.length != CONFIG_NUM_DIGIT)
     {
         return false;
     }
     if(numbers[0] == numbers[1] && numbers[0] == numbers[2] && numbers[1] == numbers[2]){
-	    console.log(4);
         return false;
     }
 				
