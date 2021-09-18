@@ -20,24 +20,30 @@ function is_allowed_number(number)
         numbers[numbers.length] = tmp;
     }
 
-    var tmp_set = new Set(numbers);
-    if (tmp_set.size != tmp_number.length || tmp_set.size != CONFIG_NUM_DIGIT)
+    if (numbers.size != CONFIG_NUM_DIGIT)
     {
         return false;
     }
+    if(numbers[0] == numbers[1] || numbers[0] == numbers[2] || numbers[1] == numbers[2]){
+        return false;
+    }
+				
     return true;
 }
 
 function get_pool()
 {
     var pool = new Array();
-    for (var number = Math.pow(10, CONFIG_NUM_DIGIT - 1); number < Math.pow(10, CONFIG_NUM_DIGIT); number++)
-    {
-        if (is_allowed_number(number) == true)
-        {
-            pool[pool.length] = String(number);
-        }
-    }
+    for (int i = 1; i < 10; i++) {
+		for (int j = 1; j < 10; j++) {
+			for (int k = 1; k < 10; k++) {
+				if (i == j || i == k || j == k){
+						continue;
+                    }
+					pool[pool.length] = String(i * 100 + j*10 + k);
+				}
+			}
+		}
     return pool;
 }
 
@@ -75,17 +81,29 @@ function calc_s_and_b(number1, number2)
         a[a.length] = number2.substr(i, 1);
     }
 
-    for (var i = 0; i < CONFIG_NUM_DIGIT; i++)
-    {
-        if (q[i] == a[i])
-        {
-            s++;
+    var strikePot = [false,false,false];
+    for (var i = 0; i < 3; i++) {
+			if (q[i] == a[i]) {
+				strikePot[i] = true;
+				s++;
+			}
+		}
+    var ballPot = strikePot.slice();
+    for (var i = 0; i < 3; i++) {
+		if (strikePot[i]){
+			continue;
         }
-        else if (a.indexOf(q[i]) != -1)
-        {
-            b++;
-        }
-    }
+		for (var j = 0; j < 3; j++) {
+			if (ballPot[j]){
+				continue;
+            }
+			if (q[i] == a[j]) {
+				b++;
+				ballPot[j] = true;
+				break;
+			}
+		}
+	}
     return [s, b];
 }
 
