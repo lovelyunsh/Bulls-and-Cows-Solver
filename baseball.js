@@ -24,7 +24,7 @@ function is_allowed_number(number)
     {
         return false;
     }
-    if(numbers[0] == numbers[1] || numbers[0] == numbers[2] || numbers[1] == numbers[2]){
+    if(numbers[0] == numbers[1] && numbers[0] == numbers[2] && numbers[1] == numbers[2]){
         return false;
     }
 				
@@ -37,9 +37,9 @@ function get_pool()
     for (var i = 1; i < 10; i++) {
 	for (var j = 1; j < 10; j++) {
 		for (var k = 1; k < 10; k++) {
-			if (i == j || i == k || j == k){
+			if (i == j && i == k && j == k){
 				continue;
-                    		}
+                    	}
 			pool[pool.length] = String(i * 100 + j*10 + k);
 			}
 		}
