@@ -34,16 +34,16 @@ function is_allowed_number(number)
 function get_pool()
 {
     var pool = new Array();
-    for (int i = 1; i < 10; i++) {
-		for (int j = 1; j < 10; j++) {
-			for (int k = 1; k < 10; k++) {
-				if (i == j || i == k || j == k){
-						continue;
-                    }
-					pool[pool.length] = String(i * 100 + j*10 + k);
-				}
+    for (var i = 1; i < 10; i++) {
+	for (var j = 1; j < 10; j++) {
+		for (var k = 1; k < 10; k++) {
+			if (i == j || i == k || j == k){
+				continue;
+                    		}
+			pool[pool.length] = String(i * 100 + j*10 + k);
 			}
 		}
+	}
     return pool;
 }
 
