@@ -11,10 +11,12 @@ function is_allowed_number(number)
         tmp = tmp_number.substr(i, 1);
         if (tmp == '')
         {
+		console.log(1);
             return false;
         }
         else if (CONFIG_POOL.has(Number(tmp)) == false)
         {
+		console.log(2);
             return false;
         }
         numbers[numbers.length] = tmp;
@@ -22,9 +24,11 @@ function is_allowed_number(number)
 
     if (numbers.size != CONFIG_NUM_DIGIT)
     {
+	    console.log(3);
         return false;
     }
     if(numbers[0] == numbers[1] && numbers[0] == numbers[2] && numbers[1] == numbers[2]){
+	    console.log(4);
         return false;
     }
 				
@@ -41,7 +45,6 @@ function get_pool()
 				continue;
                     	}
 			pool[pool.length] = String(i * 100 + j*10 + k);
-			console.log(pool[pool.length-1]);
 			}
 		}
 	}
@@ -247,9 +250,6 @@ function execute()
     try
     {
         var q_input = mainForm.input_Q.value;
-	    console.log("--------------");
-	console.log(q_input);
-	    console.log("--------------");
         var s_input = Number(mainForm.input_S.value);
         var b_input = Number(mainForm.input_B.value);
 	
