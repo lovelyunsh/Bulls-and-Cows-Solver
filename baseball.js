@@ -23,6 +23,8 @@ function is_allowed_number(number)
     }
 	console.log(numbers);
 console.log(numbers.size);
+	console.log(CONFIG_NUM_DIGIT);
+	
 	
     if (numbers.size != CONFIG_NUM_DIGIT)
     {
