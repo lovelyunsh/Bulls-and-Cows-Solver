@@ -246,7 +246,9 @@ function execute()
     try
     {
         var q_input = mainForm.input_Q.value;
+	    console.log("--------------");
 	console.log(q_input);
+	    console.log("--------------");
         var s_input = Number(mainForm.input_S.value);
         var b_input = Number(mainForm.input_B.value);
 	
