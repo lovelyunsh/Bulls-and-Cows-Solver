@@ -41,6 +41,7 @@ function get_pool()
 				continue;
                     	}
 			pool[pool.length] = String(i * 100 + j*10 + k);
+			console.log(pool[pool.length-1]);
 			}
 		}
 	}
